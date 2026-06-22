@@ -3,17 +3,43 @@ import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={frontmatter.title}>
-    <div class="post-header" debug>
+    <div class="post-header">
         <p>작성일 : {frontmatter.pubDate.toString().slice(0,10)}</p>
         <p>작성자 : Written by {frontmatter.author}</p>
         <p><em>{frontmatter.description}</em></p>
+        <img class="post-image" src={frontmatter.image.url} alt={frontmatter.image.alt} />
     </div>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
     <hr />
     <slot />
 
     <style>
-        .post-header > * {
+        .post-header {
+            position: relative;
+            overflow: hidden;
+            padding: 1rem;
+        }
+        .post-header > :not(img) {
+            position: relative;
+            z-index: 1;
+            mix-blend-mode: difference;
+            color: white;
+        }
+        .post-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 110%;
+            object-fit: cover;
+            object-position: center;
+            /* border-radius: 8px; */
+            opacity: 0.95;
+            filter: blur(4px);
+            z-index: 0;
+        
+        }
+        .post-header > p {
             margin: 0.4rem 0;
         }
         .post-header > *::before {

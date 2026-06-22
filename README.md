@@ -1,46 +1,36 @@
-# Astro Starter Kit: Basics
+# Astro 튜토리얼
 
-```sh
-npm create astro@latest -- --template basics
-```
+Astro 프레임워크를 학습하기 위한 튜토리얼 프로젝트입니다.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 프로젝트 구조
 
 ```text
 /
 ├── public/
+│   ├── favicon.ico
 │   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   └── pages/
+│       └── index.astro
+├── astro.config.mjs
+├── tsconfig.json
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🧞 명령어
 
-## 🧞 Commands
+프로젝트 루트에서 터미널로 실행합니다:
 
-All commands are run from the root of the project, from a terminal:
+| 명령어                      | 설명                                              |
+| :-------------------------- | :------------------------------------------------ |
+| `npm install`               | 의존성 설치                                       |
+| `npm run dev`               | 개발 서버 실행 (`localhost:4321`)                 |
+| `npm run build`             | 프로덕션 빌드 (`./dist/`)                        |
+| `npm run preview`           | 빌드 결과 미리보기                                |
+| `npm run astro ...`         | `astro add`, `astro check` 등 CLI 명령어 실행    |
+| `npm run astro -- --help`   | Astro CLI 도움말 보기                             |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📚 참고 자료
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro 공식 문서](https://docs.astro.build)
+- [Astro 튜토리얼](https://docs.astro.build/en/tutorial/0-introduction/)

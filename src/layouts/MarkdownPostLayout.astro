@@ -1,0 +1,18 @@
+---
+const { frontmatter } = Astro.props;
+---
+<meta charset="utf-8" />
+<h1>제목 : {frontmatter.title}</h1>
+<p>작성일 : {frontmatter.pubDate.toString().slice(0,10)}</p>
+<p>작성자 : Written by {frontmatter.author}</p>
+<p><em>{frontmatter.description}</em></p>
+<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+<hr />
+<slot />
+
+<style>
+    hr{
+        margin: 0.5rem 0 3rem 0;
+        border: 1px dashed #ccc;
+    }
+</style>

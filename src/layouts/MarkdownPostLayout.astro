@@ -4,7 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={frontmatter.title}>
     <div class="post-header">
-        <p>작성일 : {frontmatter.pubDate.toString().slice(0,10)}</p>
+        <p>작성일 : {frontmatter.pubDate.toLocaleDateString()}</p>
         <p>작성자 : Written by {frontmatter.author}</p>
         <p><em>{frontmatter.description}</em></p>
         <img class="post-image" src={frontmatter.image.url} alt={frontmatter.image.alt} />

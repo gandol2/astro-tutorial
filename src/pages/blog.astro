@@ -1,7 +1,7 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from '../layouts/BaseLayout.astro';
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));  // ./posts 디렉토리의 모든 *.md(Markdown) 파일을 가져와서 배열 만듬
-// console.log(allPosts);  // 디버깅용 출력
+const allPosts = await getCollection("blog");
 
 const pageTitle = "My Astro Learning Blog";
 ---
@@ -15,7 +15,7 @@ const pageTitle = "My Astro Learning Blog";
       <li><a href="/posts/post-3/">Post 3</a></li> -->
 
       <!-- 프론트매터의 allPosts를 사용해서 게시물 목록 출력 -->
-      {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+      {allPosts.map((post: any) => <li><a href={`/posts/${post.id}/`}>{post.data.title}</a></li>)}
 
     </ul>
 </BaseLayout>

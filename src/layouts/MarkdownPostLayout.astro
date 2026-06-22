@@ -9,8 +9,16 @@ const { frontmatter } = Astro.props;
         <p><em>{frontmatter.description}</em></p>
         <img class="post-image" src={frontmatter.image.url} alt={frontmatter.image.alt} />
     </div>
+    <p/>
+    <div class="tags">
+        {frontmatter.tags.map((tag: string) => (
+            <p class="tag"><a href={`/tags/${tag}`}>#{tag}</a></p>
+        ))}
+    </div>
     <hr />
     <slot />
+    
+</BaseLayout>
 
     <style>
         .post-header {
@@ -50,5 +58,28 @@ const { frontmatter } = Astro.props;
             margin: 0.5rem 0 3rem 0;
             border: 1px dashed #ccc;
         }
+
+        a {
+            color: #00539F;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag {
+            margin: 0;
+            background-color: #0070f330;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .tag > a {
+            text-decoration: none;
+            color: #0070f3;
+            font-weight: bold;
+        }
+        .tag > a:hover {
+            text-decoration: underline;
+        }
     </style>
-</BaseLayout>
